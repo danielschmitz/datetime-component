@@ -32,6 +32,10 @@ import { LOCALE_ID } from '@angular/core';
       useExisting: forwardRef(() => DatetimePickerComponent),
       multi: true
     },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR',
+    },
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
     provideNativeDateAdapter()
   ]
@@ -40,7 +44,6 @@ export class DatetimePickerComponent implements ControlValueAccessor, OnInit {
   @Input() labelDate: string = 'Data';
   @Input() labelTime: string = 'Hora';
   @Input() label: string = '';
-  @Input() placeholder: string = '';
   @Input() required: boolean = false;
   
   dateTimeForm!: FormGroup;
