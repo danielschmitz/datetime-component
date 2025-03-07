@@ -1,0 +1,30 @@
+<div [formGroup]="dateTimeForm" class="datetime-picker-container">
+  <div class="datetime-fields">
+    <mat-form-field appearance="outline" class="date-field">
+      <mat-label>{{ label }}</mat-label>
+      <input 
+        matInput 
+        [matDatepicker]="picker" 
+        [placeholder]="placeholder"
+        formControlName="date"
+        (blur)="onBlur()"
+        [required]="required">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="dateTimeForm.get('date')?.errors?.['required']">
+        Data é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Pick a time</mat-label>
+      <input matInput formControlName="time" (blur)="onBlur()" [matTimepicker]="timepicker">
+      <mat-timepicker-toggle matIconSuffix [for]="timepicker"/>
+      <mat-timepicker #timepicker/>
+      <mat-error *ngIf="dateTimeForm.get('time')?.errors?.['required']">
+        Hora é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+  </div>
+</div>

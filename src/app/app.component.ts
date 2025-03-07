@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -7,19 +7,22 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
+import { DatetimePickerComponent } from './datetime-picker/datetime-picker.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
+    CommonModule,
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    DatetimePickerComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
@@ -27,23 +30,53 @@ import { MatCardModule } from '@angular/material/card';
 export class AppComponent implements OnInit {
   title = 'datetime-component';
   registrationForm!: FormGroup;
+  showFormData: boolean = false;
+  formDataJson: string = '';
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.initForm();
+    
+    // Update JSON display whenever form values change
+    this.registrationForm.valueChanges.subscribe(values => {
+      this.updateFormDataJson();
+    });
   }
 
   initForm(): void {
     this.registrationForm = this.fb.group({
       name: ['', [Validators.required]],
-      registrationDate: ['', [Validators.required]]
+      registrationDate: [null, [Validators.required]]
     });
+  }
+
+  updateFormDataJson(): void {
+    const formValues = this.registrationForm.value;
+    
+    // Create a copy of the form data with formatted date
+    const formattedData = {
+      ...formValues,
+      registrationDate: formValues.registrationDate ? this.formatDate(formValues.registrationDate) : null
+    };
+    
+    this.formDataJson = JSON.stringify(formattedData, null, 2);
+    this.showFormData = true;
   }
 
   onSubmit(): void {
     if (this.registrationForm.valid) {
       console.log('Form data:', this.registrationForm.value);
+      
+      // Format the date for display
+      if (this.registrationForm.value.registrationDate) {
+        const date = this.registrationForm.value.registrationDate;
+        console.log('Formatted date:', this.formatDate(date));
+      }
+      
+      // Update JSON display
+      this.updateFormDataJson();
+      
       // Here you would typically send the data to a service
     } else {
       // Mark all fields as touched to trigger validation messages
@@ -52,5 +85,17 @@ export class AppComponent implements OnInit {
         control?.markAsTouched();
       });
     }
+  }
+  
+  private formatDate(date: Date): string {
+    if (!date) return '';
+    
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    
+    return `${day}/${month}/${year} ${hours}:${minutes}`;
   }
 }

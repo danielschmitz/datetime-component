@@ -16,15 +16,15 @@
         </div>
 
         <div class="form-row">
-          <mat-form-field appearance="outline">
-            <mat-label>Data da Inscrição</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="registrationDate" placeholder="DD/MM/AAAA">
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="registrationForm.get('registrationDate')?.errors?.['required'] && registrationForm.get('registrationDate')?.touched">
-              Data da inscrição é obrigatória
-            </mat-error>
-          </mat-form-field>
+          <app-datetime-picker 
+            formControlName="registrationDate" 
+            label="Data da Inscrição"
+            placeholder="DD/MM/AAAA HH:MM"
+            [required]="true">
+          </app-datetime-picker>
+          <mat-error *ngIf="registrationForm.get('registrationDate')?.errors?.['required'] && registrationForm.get('registrationDate')?.touched" class="date-error">
+            Data da inscrição é obrigatória
+          </mat-error>
         </div>
 
         <div class="form-actions">
@@ -32,6 +32,12 @@
           <button mat-button type="button" (click)="registrationForm.reset()">Limpar</button>
         </div>
       </form>
+      
+      <!-- JSON representation of form data -->
+      <div class="json-data-container" *ngIf="showFormData">
+        <h3>Dados do Formulário (JSON):</h3>
+        <pre>{{ formDataJson }}</pre>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
