@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Formulário de Registro</mat-card-title>
+      <mat-card-title>Formulário de Teste</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
@@ -17,14 +17,11 @@
 
         <div class="form-row">
           <app-datetime-picker 
+            label="Data/hora da Inscrição"
             formControlName="registrationDate" 
-            label="Data da Inscrição"
             placeholder="DD/MM/AAAA HH:MM"
             [required]="true">
           </app-datetime-picker>
-          <mat-error *ngIf="registrationForm.get('registrationDate')?.errors?.['required'] && registrationForm.get('registrationDate')?.touched" class="date-error">
-            Data da inscrição é obrigatória
-          </mat-error>
         </div>
 
         <div class="form-actions">
