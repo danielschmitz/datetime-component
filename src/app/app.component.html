@@ -7,7 +7,7 @@
       <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
           <mat-form-field appearance="outline">
-            <mat-label>Nome</mat-label>
+            <mat-label>Teste de Input</mat-label>
             <input matInput formControlName="name" placeholder="Digite seu nome">
             <mat-error *ngIf="registrationForm.get('name')?.errors?.['required'] && registrationForm.get('name')?.touched">
               Nome é obrigatório
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-actions">
-          <button mat-raised-button color="primary" type="submit">Enviar</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Enviar</button>
           <button mat-button type="button" (click)="registrationForm.reset()">Limpar</button>
         </div>
       </form>

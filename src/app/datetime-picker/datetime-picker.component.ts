@@ -35,8 +35,8 @@ import { MatTimepickerModule } from '@angular/material/timepicker';
   ]
 })
 export class DatetimePickerComponent implements ControlValueAccessor, OnInit {
-  @Input() labelData: string = 'Data';
-  @Input() labelHora: string = 'Hora';
+  @Input() labelDate: string = 'Data';
+  @Input() labelTime: string = 'Hora';
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() required: boolean = false;
