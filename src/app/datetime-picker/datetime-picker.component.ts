@@ -4,10 +4,11 @@ import { ControlValueAccessor, FormBuilder, FormGroup, FormsModule, NG_VALUE_ACC
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MAT_DATE_LOCALE, MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { LOCALE_ID } from '@angular/core';
+import { CustomDateAdapter } from '../custom-date-adapter';
 
 @Component({
   selector: 'app-datetime-picker',
@@ -37,7 +38,8 @@ import { LOCALE_ID } from '@angular/core';
       useValue: 'pt-BR',
     },
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
-    provideNativeDateAdapter()
+    {provide: DateAdapter, useClass: CustomDateAdapter},
+    
   ]
 })
 export class DatetimePickerComponent implements ControlValueAccessor, OnInit {
