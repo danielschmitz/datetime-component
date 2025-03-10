@@ -1,6 +1,6 @@
 {
   "name": "@danielschmitz/datetime-component",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A reusable Angular datetime picker component",
   "author": "Daniel Schmitz",
   "repository": {

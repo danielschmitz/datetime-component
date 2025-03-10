@@ -4,6 +4,17 @@ A reusable Angular Datetime Picker component that combines date and time selecti
 
 [Demo](https://danielschmitz.github.io/datetime-component/)
 
+```html
+<ds-datetime-picker
+    label="Event Date/Time"
+    formControlName="registrationDate"
+    [required]="true"
+>
+</ds-datetime-picker>
+```
+![](image.png)
+
+
 ## Features
 
 - Combined date and time picker in a single component
