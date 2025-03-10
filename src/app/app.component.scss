@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+.github-link {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 10;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    color: #333;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: #333;
+      color: #fff;
+      transform: scale(1.1);
+    }
+  }
+}
+
+mat-card {
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+mat-card-header {
+  padding: 16px;
+  background-color: #3f51b5;
+  color: white;
+  margin-bottom: 16px;
+}
+
+mat-card-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+mat-card-content {
+  padding: 16px;
+}
+
+.form-row {
+  margin-bottom: 16px;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.date-error {
+  font-size: 12px;
+  color: #f44336;
+  margin-top: -10px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.json-data-container {
+  margin-top: 30px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+
+  h3 {
+    color: #3f51b5;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  pre {
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px;
+    overflow: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+  }
+}

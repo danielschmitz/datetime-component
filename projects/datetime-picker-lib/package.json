@@ -1,0 +1,29 @@
+{
+  "name": "@danielschmitz/datetime-component",
+  "version": "1.0.2",
+  "description": "A reusable Angular datetime picker component",
+  "author": "Daniel Schmitz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielschmitz/datetime-component.git"
+  },
+  "keywords": [
+    "angular",
+    "datetime",
+    "picker",
+    "component",
+    "form",
+    "control"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "@angular/material": "^19.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

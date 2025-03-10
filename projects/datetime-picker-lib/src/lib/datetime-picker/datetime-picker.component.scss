@@ -1,0 +1,38 @@
+.datetime-picker-container {
+  width: 100%;
+}
+
+.datetime-fields {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.date-field {
+  flex: 2;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.datetime-label {
+  font-weight: semibold;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.time-field {
+  flex: 1;
+  min-width: 120px;
+
+  @media (max-width: 600px) {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
