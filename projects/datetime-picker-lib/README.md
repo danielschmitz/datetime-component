@@ -28,18 +28,6 @@ A reusable Angular Datetime Picker component that combines date and time selecti
 
 This component only works from Angular Material v19 onwards, since the `MatTimepickerModule` was introduced in this version.
 
-## Usage
-
-```html
-<ds-datetime-picker
-    label="Event Date/Time"
-    formControlName="registrationDate"
-    [required]="true"
->
-</ds-datetime-picker>
-```
-![](image.png)
-
 ## Installation
 
 First, install the package:
