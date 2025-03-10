@@ -1,8 +1,21 @@
-# DatetimeComponent
+# @danielschmitz/datetime-component
 
-A material angular date+time component
+A reusable Angular Datetime Picker component that combines date and time selection in a single form control.
 
-[demo](https://danielschmitz.github.io/datetime-component/)
+[Demo](https://danielschmitz.github.io/datetime-component/)
+
+## Features
+
+- Combined date and time picker in a single component
+- Form control integration (works with Reactive Forms)
+- Supports readonly mode
+- Customizable labels
+- Supports Required validation
+- Requires Angular Material v19 or higher
+
+### Important note
+
+This component only works from Angular Material v19 onwards, since the `MatTimepickerModule` was introduced in this version.
 
 ## Usage
 
@@ -14,7 +27,7 @@ A material angular date+time component
 >
 </ds-datetime-picker>
 ```
-![alt text](image.png)
+![](image.png)
 
 ## Installation
 
